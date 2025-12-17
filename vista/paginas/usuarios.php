@@ -34,7 +34,27 @@
                 </tr>
               </thead>
               <tbody>
+      <?php 
+      
 
+
+       $usuarios = ctrUsuario::ctrMostrarUsuario(null, null);
+      foreach ($usuarios as $key => $value) {
+        echo '<tr>';
+        echo '<td>'.($key+1).'</td>';
+        echo '<td>'.$value["nombre"].'</td>';
+        echo '<td>'.$value["usuario"].'</td>';
+        echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
+        echo '<td>'.$value["rol"].'</td>';
+        echo '<td>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></button>
+                  <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                </div>
+              </td>';
+        echo '</tr>';
+      }
+      ?>
               
               </tbody>
             </table>
@@ -61,8 +81,8 @@
           <form role="form" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="form-group">
-                <label for="nuevo-nombre">Nombre</label>
-                <input type="text" class="form-control" id="nuevo-nombre" name="nuevo-nombre" placeholder="Ingresar nombre" required>
+                <label for="nuevo-Nombre">Nombre</label>
+                <input type="text" class="form-control" id="nuevo-nombre" name="nuevo-Nombre" placeholder="Ingresar nombre" required>
               </div>
               <div class="form-group">
                 <label for="nuevo-usuario">Usuario</label>
@@ -90,7 +110,12 @@
                 <button type="submit" class="btn btn-primary">Guardar usuario</button>
               
                 <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">  Cerrar</button>
- </div>
+ 
+ <?php 
+$guardarUsuario = new ctrUsuario();
+$guardarUsuario -> ctrCrearUsuario();
+?>
+              </div>
 
 
 </section>

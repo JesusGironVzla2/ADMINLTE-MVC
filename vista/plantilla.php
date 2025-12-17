@@ -1,3 +1,12 @@
+<?php 
+$usuarios = ctrUsuario::ctrMostrarUsuario(null, null); 
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
